@@ -17,9 +17,58 @@ body {
     align-items: center;
 }
 
-.circle p {
+.circle a {
     color: white;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: limegreen;
+    text-decoration: none;
     font-size: 50px;
+}
+
+.nav-month-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 300px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.nav-month-bar li {
+    float: left;
+}
+
+.nav-month-bar li a {
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: limegreen;
+}
+
+.nav-month-bar li a:hover {
+    background-color: #eeeeee;
+}
+
+.nav-item-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+}
+
+.nav-item-bar li {
+    float: right;
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: limegreen;
+}
+
+.nav-item-bar li:hover {
+    color: #ddd;
+    cursor: pointer;
 }
