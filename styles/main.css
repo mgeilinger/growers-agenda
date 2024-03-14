@@ -95,3 +95,19 @@ body {
 .about-box.show {
     height: 160px;
 }
+
+.side-bar {
+    width: 498px;
+    height: 100%;
+    background-color: white;
+    border-left: 2px solid limegreen;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    transition: right 0.5s;
+    z-index: 10;
+}
+
+.side-bar.show {
+    right: 0;
+}

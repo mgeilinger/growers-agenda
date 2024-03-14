@@ -19,3 +19,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const myGardenLink = document.querySelector('.my-garden-link');
+    const sideBar = document.getElementById('sideBar');
+
+    myGardenLink.addEventListener('click', function() {
+        sideBar.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(event) {
+        const isClickedInsideSidebar = sideBar.contains(event.target);
+        const isClickedOnMyGardenLink = myGardenLink.contains(event.target);
+
+        if (!isClickedInsideSidebar && !isClickedOnMyGardenLink) {
+            sideBar.classList.remove('show');
+        }
+    });
+});
