@@ -84,7 +84,7 @@ body {
     left: 0;
     transition: height 0.5s;
     overflow: hidden;
-    z-index: 9;
+    z-index: 8;
 }
 
 .about-box p {
@@ -94,6 +94,22 @@ body {
 
 .about-box.show {
     height: 160px;
+}
+
+.top-bar {
+    width: 100%;
+    height: 498px;
+    background-color: white;
+    border-bottom: 2px solid limegreen;
+    position: fixed;
+    top: -500px;
+    left: 0;
+    transition: top 0.5s;
+    z-index: 9;
+}
+
+.top-bar.show {
+    top: 0;
 }
 
 .side-bar {

@@ -37,3 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const floweringTimeLink = document.querySelector('.flowering-time-link');
+    const topBar = document.getElementById('topBar');
+
+    floweringTimeLink.addEventListener('click', function() {
+        topBar.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(event) {
+        const isClickedInsideTopBar = topBar.contains(event.target);
+        const isClickedOnFloweringTimeLink = floweringTimeLink.contains(event.target);
+
+        if (!isClickedInsideTopBar && !isClickedOnFloweringTimeLink) {
+            topBar.classList.remove('show');
+        }
+    });
+});
