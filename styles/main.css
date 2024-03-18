@@ -79,7 +79,7 @@ body {
     background-color: limegreen;
     width: 100%;
     height: 0;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     transition: height 0.5s;
@@ -89,11 +89,11 @@ body {
 
 .about-box p {
     color: white;
-    margin-left: 300px;
+    margin: 7px 5px 5px 300px;
 }
 
 .about-box.show {
-    height: 160px;
+    height: 130px;
 }
 
 .top-bar {
@@ -122,8 +122,145 @@ body {
     right: -500px;
     transition: right 0.5s;
     z-index: 10;
+    color: limegreen;
+}
+
+.side-bar h1 {
+    font-size: 26px;
+    font-weight: thin;
+    margin: 20px;
+    border-bottom: 2px solid limegreen;
+    color: limegreen;
+}
+
+.side-bar p {
+    margin: 0px 20px;
+    color: limegreen;
+}
+
+input[type="text"] {
+    width: 350px;
+    background-color: beige;
+    color: green;
+    border: none;
+    padding: 10px;
+    margin: 20px 20px 0px 20px;
+    outline: none;
+    z-index: 1;
+}
+
+::placeholder {
+    color: green;
+}
+
+.dropdown {
+    display: none;
+    width: 370px;
+    max-height: 200px;
+    overflow-y: auto;
+    color: green;
+    background-color: beige;
+    border-top: 2px solid green;
+    padding: 0;
+    margin: 0px 20px;
+    list-style: none;
+    z-index: 2;
+}
+
+.dropdown li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown li:hover {
+    background-color: #ddd;
+}
+
+.flower-box {
+    list-style-type: none;
+    border: 2px solid limegreen;
+    color: limegreen;
+    margin: 10px 0px;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.flower-box:hover .remove {
+    display: block;
+}
+
+.remove {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    color: limegreen;
+    z-index: 1;
+}
+
+.flower-box:hover::after {
+    content: 'x';
+    float: right;
+    height: 20px;
+    width: 20px;
+    display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    color: limegreen;
+    background-color: white;
+    border: 2px solid limegreen;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .side-bar.show {
     right: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 120px 0px 75px 0px;;
+    justify-content: center;
+}
+
+.intro-box {
+    width: 60%;
+    padding: 0px 20px;
+    border-bottom: 2px solid tomato;
+    color: limegreen;
+}
+
+.intro-box h1 {
+    font-size: 28px;
+}
+
+.left-box {
+    margin-right: 400px;
+    margin-top: 50px;
+    width: 600px;
+    padding: 0px 20px;
+    border-bottom: 2px solid orange;
+    color: limegreen;
+}
+
+.left-box h1 {
+    font-size: 24px;
+}
+
+.right-box {
+    margin-left: 400px;
+    margin-top: 50px;
+    width: 600px;
+    padding: 0px 20px;
+    border-bottom: 2px solid peru;
+    color: limegreen;
+}
+
+.right-box h1 {
+    font-size: 24px;
 }

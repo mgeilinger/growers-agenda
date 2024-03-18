@@ -55,3 +55,100 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+console.log(localStorage);
+
+const flowerList = document.getElementById('flowerList');
+    const searchInput = document.getElementById('searchInput');
+    const dropdown = document.getElementById('dropdown');
+
+    // Sample flowers data (replace with your own data)
+    const flowers = ['Rose', 'Lily', 'Tulip', 'Daisy', 'Sunflower'];
+
+    // Load flowers from local storage
+    const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
+
+    // Filter out stored flowers from dropdown
+    const filteredFlowers = flowers.filter(flower => !storedFlowers.includes(flower.toLowerCase()));
+
+    // Event listener for search input
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.toLowerCase();
+        dropdown.innerHTML = ''; // Clear the current dropdown options
+
+        if (searchTerm.length === 0) {
+            dropdown.style.display = 'none';
+            return;
+        }
+
+        // Filter flowers based on search term and add them to the dropdown
+        filteredFlowers.forEach(flower => {
+            if (flower.toLowerCase().includes(searchTerm)) {
+                const option = document.createElement('li');
+                option.textContent = flower;
+                option.onclick = function () {
+                    addFlowerToList(flower);
+                    dropdown.style.display = 'none';
+                    searchInput.value = ''; // Clear the search input after selecting a flower
+                    storedFlowers.push(flower.toLowerCase());
+                    localStorage.setItem('flowers', JSON.stringify(storedFlowers));
+                    filteredFlowers.splice(filteredFlowers.indexOf(flower), 1); // Remove from dropdown options
+                };
+                dropdown.appendChild(option);
+            }
+        });
+
+        if (dropdown.children.length > 0) {
+            dropdown.style.display = 'block';
+            dropdown.style.width = searchInput.offsetWidth + 'px'; // Set dropdown width to match input width
+        } else {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    // Populate flower list with stored flowers
+    storedFlowers.forEach(flower => addFlowerToList(flower));
+
+    // Define a function to add a flower to the list
+    function addFlowerToList(flowerName) {
+        const flowerBox = document.createElement('li');
+        flowerBox.className = 'flower-box';
+        flowerBox.textContent = flowerName;
+
+        flowerBox.onclick = function() {
+            removeFlower(flowerBox, flowerName);
+        };
+
+        flowerList.appendChild(flowerBox);
+    }
+
+    // Define a function to remove a flower from the list
+    function removeFlower(flowerBox, flowerName) {
+        flowerList.removeChild(flowerBox);
+        const index = storedFlowers.indexOf(flowerName.toLowerCase());
+        if (index !== -1) {
+            storedFlowers.splice(index, 1);
+            localStorage.setItem('flowers', JSON.stringify(storedFlowers));
+        }
+        // Add the removed flower back to the filteredFlowers array
+        filteredFlowers.push(flowerName);
+        // Stop the event from propagating to the side bar
+        event.stopPropagation();
+    }
+
+    // Event listener to hide dropdown when clicked outside
+    document.addEventListener('click', function (event) {
+        if (!event.target.matches('#searchInput')) {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    // Prevent closing dropdown when clicking on it
+    dropdown.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
+
+    // Prevent closing dropdown when clicking on the search input
+    searchInput.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
