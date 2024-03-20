@@ -164,3 +164,24 @@ dropdown.addEventListener('click', function (event) {
 searchInput.addEventListener('click', function (event) {
     event.stopPropagation();
 });
+
+// Get all text-box elements
+const textBoxes = document.querySelectorAll('.text-box');
+
+// Initialize variable to track the direction
+let currentDirection = 'left';
+
+// Loop through each text box
+textBoxes.forEach((textBox, index) => {
+    // Check if the current text box is hidden
+    if (textBox.style.display !== 'none') {
+        // Assign class based on the direction
+        if (currentDirection === 'left') {
+            textBox.classList.add('text-left');
+            currentDirection = 'right';
+        } else {
+            textBox.classList.add('text-right');
+            currentDirection = 'left';
+        }
+    }
+});
