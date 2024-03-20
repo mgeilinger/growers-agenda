@@ -123,6 +123,7 @@ body {
     transition: right 0.5s;
     z-index: 10;
     color: limegreen;
+    overflow-y: scroll;
 }
 
 .side-bar h1 {
@@ -251,8 +252,7 @@ input[type="text"] {
     font-size: 28px;
 }
 
-.left-box {
-    margin-right: 400px;
+.text-box {
     margin-top: 50px;
     width: 600px;
     padding: 0px 20px;
@@ -260,19 +260,15 @@ input[type="text"] {
     color: limegreen;
 }
 
-.left-box h1 {
+.text-box h1 {
     font-size: 24px;
 }
 
-.right-box {
+/* Alternate text-box alignment */
+.text-box:nth-child(odd) {
     margin-left: 400px;
-    margin-top: 50px;
-    width: 600px;
-    padding: 0px 20px;
-    border-bottom: 2px solid green;
-    color: limegreen;
 }
 
-.right-box h1 {
-    font-size: 24px;
+.text-box:nth-child(even) {
+    margin-right: 400px;
 }
