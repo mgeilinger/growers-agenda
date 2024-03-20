@@ -180,11 +180,20 @@ input[type="text"] {
     list-style-type: none;
     border: 2px solid limegreen;
     color: limegreen;
-    margin: 10px 0px;
+    margin: 0px 0px;
     width: 200px;
     height: 200px;
     background-color: white;
-    cursor: pointer;
+    position: relative;
+}
+
+.flower-box h2 {
+    z-index: 1;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    text-transform: uppercase;
+    margin: 0;
 }
 
 .flower-box:hover .remove {
@@ -198,23 +207,26 @@ input[type="text"] {
     right: 0;
     padding: 5px;
     color: limegreen;
-    z-index: 1;
+    z-index: 2;
+    cursor: pointer;
 }
 
-.flower-box:hover::after {
-    content: 'x';
-    float: right;
-    height: 20px;
-    width: 20px;
-    display: block;
-    position: relative;
-    top: 0;
-    right: 0;
-    color: limegreen;
-    background-color: white;
-    border: 2px solid limegreen;
-    cursor: pointer;
-    z-index: 1;
+#flowerList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0; /* Adjust the gap between columns as needed */
+    padding: 0;
+    margin-left: 20px;
+    overflow-y: auto;
+    max-height: 1000px;
+}
+
+#flowerList li:nth-child(even) {
+    margin-top: 40px;
+}
+
+.side-bar:hover {
+    overflow-y: scroll;
 }
 
 .side-bar.show {
@@ -231,7 +243,7 @@ input[type="text"] {
 .intro-box {
     width: 60%;
     padding: 0px 20px;
-    border-bottom: 2px solid tomato;
+    border-bottom: 4px solid beige;
     color: limegreen;
 }
 
@@ -244,7 +256,7 @@ input[type="text"] {
     margin-top: 50px;
     width: 600px;
     padding: 0px 20px;
-    border-bottom: 2px solid orange;
+    border-bottom: 2px solid green;
     color: limegreen;
 }
 
@@ -257,7 +269,7 @@ input[type="text"] {
     margin-top: 50px;
     width: 600px;
     padding: 0px 20px;
-    border-bottom: 2px solid peru;
+    border-bottom: 2px solid green;
     color: limegreen;
 }
 

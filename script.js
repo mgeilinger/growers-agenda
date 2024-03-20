@@ -59,52 +59,51 @@ document.addEventListener('DOMContentLoaded', function() {
 console.log(localStorage);
 
 const flowerList = document.getElementById('flowerList');
-    const searchInput = document.getElementById('searchInput');
-    const dropdown = document.getElementById('dropdown');
+const searchInput = document.getElementById('searchInput');
+const dropdown = document.getElementById('dropdown');
 
-    // Sample flowers data (replace with your own data)
-    const flowers = ['Rose', 'Lily', 'Tulip', 'Daisy', 'Sunflower'];
+const flowers = ['Rose', 'Lily', 'Tulip', 'Daisy', 'Sunflower'];
 
-    // Load flowers from local storage
-    const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
+// Load flowers from local storage
+const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
 
-    // Filter out stored flowers from dropdown
-    const filteredFlowers = flowers.filter(flower => !storedFlowers.includes(flower.toLowerCase()));
+// Filter out stored flowers from dropdown
+const filteredFlowers = flowers.filter(flower => !storedFlowers.includes(flower.toLowerCase()));
 
-    // Event listener for search input
-    searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.toLowerCase();
-        dropdown.innerHTML = ''; // Clear the current dropdown options
+// Event listener for search input
+searchInput.addEventListener('input', function () {
+    const searchTerm = searchInput.value.toLowerCase();
+    dropdown.innerHTML = ''; // Clear the current dropdown options
 
-        if (searchTerm.length === 0) {
-            dropdown.style.display = 'none';
-            return;
-        }
+    if (searchTerm.length === 0) {
+        dropdown.style.display = 'none';
+        return;
+    }
 
-        // Filter flowers based on search term and add them to the dropdown
-        filteredFlowers.forEach(flower => {
-            if (flower.toLowerCase().includes(searchTerm)) {
-                const option = document.createElement('li');
-                option.textContent = flower;
-                option.onclick = function () {
-                    addFlowerToList(flower);
-                    dropdown.style.display = 'none';
-                    searchInput.value = ''; // Clear the search input after selecting a flower
-                    storedFlowers.push(flower.toLowerCase());
-                    localStorage.setItem('flowers', JSON.stringify(storedFlowers));
-                    filteredFlowers.splice(filteredFlowers.indexOf(flower), 1); // Remove from dropdown options
-                };
-                dropdown.appendChild(option);
-            }
-        });
-
-        if (dropdown.children.length > 0) {
-            dropdown.style.display = 'block';
-            dropdown.style.width = searchInput.offsetWidth + 'px'; // Set dropdown width to match input width
-        } else {
-            dropdown.style.display = 'none';
+    // Filter flowers based on search term and add them to the dropdown
+    filteredFlowers.forEach(flower => {
+        if (flower.toLowerCase().includes(searchTerm)) {
+            const option = document.createElement('li');
+            option.textContent = flower;
+            option.onclick = function () {
+                addFlowerToList(flower);
+                dropdown.style.display = 'none';
+                searchInput.value = ''; // Clear the search input after selecting a flower
+                storedFlowers.push(flower.toLowerCase());
+                localStorage.setItem('flowers', JSON.stringify(storedFlowers));
+                filteredFlowers.splice(filteredFlowers.indexOf(flower), 1); // Remove from dropdown options
+            };
+            dropdown.appendChild(option);
         }
     });
+
+    if (dropdown.children.length > 0) {
+        dropdown.style.display = 'block';
+        dropdown.style.width = searchInput.offsetWidth + 'px'; // Set dropdown width to match input width
+    } else {
+        dropdown.style.display = 'none';
+    }
+});
 
     // Populate flower list with stored flowers
     storedFlowers.forEach(flower => addFlowerToList(flower));
@@ -113,15 +112,19 @@ const flowerList = document.getElementById('flowerList');
     function addFlowerToList(flowerName) {
         const flowerBox = document.createElement('li');
         flowerBox.className = 'flower-box';
-        flowerBox.textContent = flowerName;
-
-        flowerBox.onclick = function() {
-            removeFlower(flowerBox, flowerName);
-        };
-
+    
+        const flowerHeading = document.createElement('h2');
+        flowerHeading.textContent = flowerName;
+        flowerBox.appendChild(flowerHeading);
+    
+        const removeButton = document.createElement('span');
+        removeButton.textContent = '✕';
+        removeButton.className = 'remove';
+        flowerBox.appendChild(removeButton);
+    
         flowerList.appendChild(flowerBox);
     }
-
+    
     // Define a function to remove a flower from the list
     function removeFlower(flowerBox, flowerName) {
         flowerList.removeChild(flowerBox);
@@ -132,9 +135,18 @@ const flowerList = document.getElementById('flowerList');
         }
         // Add the removed flower back to the filteredFlowers array
         filteredFlowers.push(flowerName);
-        // Stop the event from propagating to the side bar
-        event.stopPropagation();
     }
+    
+    // Event listener for clicking on the remove button
+    flowerList.addEventListener('click', function(event) {
+        const removeButton = event.target.closest('.remove');
+        if (removeButton) {
+            event.stopPropagation();
+            const flowerBox = removeButton.parentElement;
+            const flowerName = flowerBox.querySelector('h2').textContent;
+            removeFlower(flowerBox, flowerName);
+        }
+    });
 
     // Event listener to hide dropdown when clicked outside
     document.addEventListener('click', function (event) {
