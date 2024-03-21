@@ -255,6 +255,7 @@ input[type="text"] {
 }
 
 .text-box {
+    display: none;
     margin-top: 50px;
     width: 600px;
     padding: 0px 20px;

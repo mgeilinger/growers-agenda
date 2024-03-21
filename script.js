@@ -62,7 +62,7 @@ const flowerList = document.getElementById('flowerList');
 const searchInput = document.getElementById('searchInput');
 const dropdown = document.getElementById('dropdown');
 
-const flowers = ['Rose', 'Lily', 'Tulip', 'Daisy', 'Sunflower', 'Wisteria', 'Daffodil'];
+const flowers = ['Rose', 'Lily', 'Tulip', 'Daisy', 'Sunflower', 'Wisteria', 'Daffodil', 'Butterfly bush'];
 
 // Load flowers from local storage
 const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
@@ -168,14 +168,22 @@ searchInput.addEventListener('click', function (event) {
 // Get all text-box elements
 const textBoxes = document.querySelectorAll('.text-box');
 
+// Filter out hidden text-boxes
+const visibleTextBoxes = Array.from(textBoxes).filter(textBox => textBox.style.display !== 'none');
+
 // Initialize variable to track the direction
 let currentDirection = 'left';
 
-// Loop through each text box
-textBoxes.forEach((textBox, index) => {
-    // Check if the current text box is hidden
-    if (textBox.style.display !== 'none') {
-        // Assign class based on the direction
+// Flag to determine if the first visible text-box has been encountered
+let firstVisibleFound = false;
+
+// Loop through each visible text box
+visibleTextBoxes.forEach((textBox, index) => {
+    // Assign class based on the direction
+    if (!firstVisibleFound) {
+        textBox.classList.add('text-left');
+        firstVisibleFound = true;
+    } else {
         if (currentDirection === 'left') {
             textBox.classList.add('text-left');
             currentDirection = 'right';
