@@ -1,3 +1,5 @@
+// localStorage.clear();
+
 document.addEventListener('DOMContentLoaded', function() {
     const aboutLink = document.querySelector('.about-link');
     const aboutBox = document.getElementById('aboutBox');
@@ -110,11 +112,14 @@ storedFlowers.forEach(flower => addFlowerToList(flower));
 
 // Define a function to add a flower to the list
 function addFlowerToList(flowerName) {
+    // Capitalize the first letter of the flower name
+    const capitalizedFlowerName = flowerName.charAt(0).toUpperCase() + flowerName.slice(1);
+
     const flowerBox = document.createElement('li');
     flowerBox.className = 'flower-box';
     
     const flowerHeading = document.createElement('h2');
-    flowerHeading.textContent = flowerName;
+    flowerHeading.textContent = capitalizedFlowerName; // Use capitalized flower name
     flowerBox.appendChild(flowerHeading);
     
     const removeButton = document.createElement('span');
