@@ -128,6 +128,12 @@ function addFlowerToList(flowerName) {
     flowerBox.appendChild(removeButton);
     
     flowerList.appendChild(flowerBox);
+
+    // Display corresponding text-box if available
+    const textBox = document.querySelector(`.text-box.${flowerName.toLowerCase()}`);
+    if (textBox) {
+        textBox.style.display = 'block';
+    }
 }
     
 // Define a function to remove a flower from the list
@@ -170,31 +176,40 @@ searchInput.addEventListener('click', function (event) {
     event.stopPropagation();
 });
 
-// Get all text-box elements
-const textBoxes = document.querySelectorAll('.text-box');
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the stored flowers from local storage
+    const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
+    
+    // Get all text-box elements
+    const textBoxes = document.querySelectorAll('.text-box');
 
-// Filter out hidden text-boxes
-const visibleTextBoxes = Array.from(textBoxes).filter(textBox => textBox.style.display !== 'none');
+    // Iterate over each text-box
+    textBoxes.forEach((textBox) => {
+        // Check if the text-box is visible (not hidden)
+        if (getComputedStyle(textBox).display !== 'none') {
+            // Get the previous visible sibling text-box
+            const prevTextBox = getPreviousVisibleSibling(textBox);
 
-// Initialize variable to track the direction
-let currentDirection = 'left';
-
-// Flag to determine if the first visible text-box has been encountered
-let firstVisibleFound = false;
-
-// Loop through each visible text box
-visibleTextBoxes.forEach((textBox, index) => {
-    // Assign class based on the direction
-    if (!firstVisibleFound) {
-        textBox.classList.add('text-left');
-        firstVisibleFound = true;
-    } else {
-        if (currentDirection === 'left') {
-            textBox.classList.add('text-left');
-            currentDirection = 'right';
-        } else {
-            textBox.classList.add('text-right');
-            currentDirection = 'left';
+            // Assign alignment based on the position of the previous visible text-box
+            if (prevTextBox && prevTextBox.classList.contains('text-left')) {
+                textBox.classList.remove('text-left');
+                textBox.classList.add('text-right');
+            } else {
+                textBox.classList.remove('text-right');
+                textBox.classList.add('text-left');
+            }
         }
-    }
+    });
 });
+
+// Function to get the previous visible sibling text-box
+function getPreviousVisibleSibling(element) {
+    let prevSibling = element.previousElementSibling;
+    while (prevSibling) {
+        if (getComputedStyle(prevSibling).display !== 'none') {
+            return prevSibling;
+        }
+        prevSibling = prevSibling.previousElementSibling;
+    }
+    return null;
+}
