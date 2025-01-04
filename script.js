@@ -233,7 +233,7 @@ function fromCamelCase(str) {
 }
 
 
-  var hello = toCamelCase("butterfly bush")
-  var goodbye = fromCamelCase(hello);
-  console.log(hello);
-  console.log(goodbye)
+var hello = toCamelCase("butterfly bush")
+var goodbye = fromCamelCase(hello);
+console.log(hello);
+console.log(goodbye)
