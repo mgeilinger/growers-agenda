@@ -130,7 +130,7 @@ function addFlowerToList(flowerName) {
     flowerList.appendChild(flowerBox);
 
     // Display corresponding text-box if available
-    const textBox = document.querySelector(`.text-box.${flowerName.toLowerCase()}`);
+    const textBox = document.querySelector(`.text-box.${toCamelCase(flowerName)}`);
     if (textBox) {
         textBox.style.display = 'block';
     }
@@ -213,3 +213,27 @@ function getPreviousVisibleSibling(element) {
     }
     return null;
 }
+
+// Removes spaces from strings and capitalises the word following the string
+function toCamelCase(str) {
+    return str
+        .toLowerCase() // Convert the string to lowercase
+        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => 
+            index === 0 ? word.toLowerCase() : word.toUpperCase()
+        ) // Capitalize letters following spaces
+        .replace(/\s+/g, ''); // Remove spaces
+}
+
+// Reverses the above process
+function fromCamelCase(str) {
+    return str
+        .replace(/([A-Z])/g, ' $1') // Add a space before each uppercase letter
+        .toLowerCase() // Convert the entire string to lowercase
+        .trim(); // Remove leading or trailing spaces
+}
+
+
+  var hello = toCamelCase("butterfly bush")
+  var goodbye = fromCamelCase(hello);
+  console.log(hello);
+  console.log(goodbye)

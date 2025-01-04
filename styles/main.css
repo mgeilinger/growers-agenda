@@ -113,16 +113,16 @@ body {
 }
 
 .side-bar {
-    width: 498px;
+    width: 500px;
     height: 100%;
-    background-color: white;
-    border-left: 2px solid limegreen;
+    background-color: #d4c391;
+    /* border-left: 2px solid limegreen; */
     position: fixed;
     top: 0;
     right: -500px;
     transition: right 0.5s;
     z-index: 10;
-    color: limegreen;
+    color: ivory;
     overflow-y: scroll;
 }
 
@@ -130,19 +130,19 @@ body {
     font-size: 26px;
     font-weight: thin;
     margin: 20px;
-    border-bottom: 2px solid limegreen;
-    color: limegreen;
+    border-bottom: 2px solid ivory;
+    color: ivory;
 }
 
 .side-bar p {
     margin: 0px 20px;
-    color: limegreen;
+    color: ivory;
 }
 
 input[type="text"] {
     width: 350px;
-    background-color: beige;
-    color: green;
+    background-color: ivory;
+    color: rgb(85, 60, 21);
     border: none;
     padding: 10px;
     margin: 20px 20px 0px 20px;
@@ -151,7 +151,7 @@ input[type="text"] {
 }
 
 ::placeholder {
-    color: green;
+    color: rgb(85, 60, 21);
 }
 
 .dropdown {
@@ -159,8 +159,8 @@ input[type="text"] {
     width: 370px;
     max-height: 200px;
     overflow-y: auto;
-    color: green;
-    background-color: beige;
+    color: rgb(85, 60, 21);
+    background-color: ivory;
     padding: 0;
     margin: 0px 20px;
     list-style: none;
@@ -171,7 +171,7 @@ input[type="text"] {
 .dropdown li {
     padding: 10px;
     cursor: pointer;
-    border-top: 1px solid green;
+    border-top: 1px solid rgb(85, 60, 21);
 }
 
 .dropdown li:hover {
@@ -180,12 +180,12 @@ input[type="text"] {
 
 .flower-box {
     list-style-type: none;
-    border: 2px solid limegreen;
-    color: limegreen;
+    border: 2px solid ivory;
+    color: ivory;
     margin: 0px 0px;
     width: 200px;
     height: 200px;
-    background-color: white;
+    background-color: #d4c391;
     position: relative;
     z-index: 2;
 }
@@ -209,7 +209,7 @@ input[type="text"] {
     top: 0;
     right: 0;
     padding: 5px;
-    color: limegreen;
+    color: ivory;
     z-index: 2;
     cursor: pointer;
 }
