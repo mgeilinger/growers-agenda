@@ -64,7 +64,7 @@ const flowerList = document.getElementById('flowerList');
 const searchInput = document.getElementById('searchInput');
 const dropdown = document.getElementById('dropdown');
 
-const flowers = ['Rose', 'Lily', 'Tulip', 'Daisy', 'Sunflower', 'Wisteria', 'Daffodil', 'Butterfly bush'];
+const flowers = ['Wisteria', 'Butterfly bush', 'Agapanthus', 'Lavender', 'Rosemary', 'Climbing hydrangea'];
 
 // Load flowers from local storage
 const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
