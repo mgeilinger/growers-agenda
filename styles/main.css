@@ -263,6 +263,21 @@ input[type="text"] {
     color: limegreen;
 }
 
+.idea {
+    display: block;
+    margin-top: 50px;
+    width: 600px;
+    padding: 0px 20px;
+    border-bottom: 2px solid coral;
+    color: orange;
+}
+
+.tip {
+    display: block;
+    color: darkgoldenrod;
+    border-bottom: 2px solid saddlebrown;
+}
+
 .text-box h1 {
     font-size: 24px;
 }
