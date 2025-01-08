@@ -300,8 +300,8 @@ input[type="text"] {
 .intro-box {
     width: 60%;
     padding: 0px 20px;
-    border-bottom: 2px solid beige;
-    color: darkolivegreen;
+    border-bottom: 4px solid beige;
+    color: limegreen;
 }
 
 .intro-box h1 {
@@ -312,8 +312,8 @@ input[type="text"] {
     display: none;
     margin-top: 50px;
     width: 600px;
-    padding: 0;
-    border-bottom: 2px solid beige;
+    padding: 0px 20px;
+    border-bottom: 2px solid green;
     color: limegreen;
 }
 
@@ -321,15 +321,15 @@ input[type="text"] {
     display: block;
     margin-top: 50px;
     width: 600px;
-    padding: 0;
-    border-bottom: 2px solid beige;
+    padding: 0px 20px;
+    border-bottom: 2px solid coral;
     color: orange;
 }
 
 .tip {
     display: block;
     color: darkgoldenrod;
-    border-bottom: 2px solid beige;
+    border-bottom: 2px solid saddlebrown;
 }
 
 .text-box h1 {
