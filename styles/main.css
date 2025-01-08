@@ -246,8 +246,8 @@ input[type="text"] {
 .intro-box {
     width: 60%;
     padding: 0px 20px;
-    border-bottom: 4px solid beige;
-    color: limegreen;
+    border-bottom: 2px solid beige;
+    color: darkolivegreen;
 }
 
 .intro-box h1 {
@@ -258,8 +258,8 @@ input[type="text"] {
     display: none;
     margin-top: 50px;
     width: 600px;
-    padding: 0px 20px;
-    border-bottom: 2px solid green;
+    padding: 0;
+    border-bottom: 2px solid beige;
     color: limegreen;
 }
 
@@ -267,15 +267,15 @@ input[type="text"] {
     display: block;
     margin-top: 50px;
     width: 600px;
-    padding: 0px 20px;
-    border-bottom: 2px solid coral;
+    padding: 0;
+    border-bottom: 2px solid beige;
     color: orange;
 }
 
 .tip {
     display: block;
     color: darkgoldenrod;
-    border-bottom: 2px solid saddlebrown;
+    border-bottom: 2px solid beige;
 }
 
 .text-box h1 {
