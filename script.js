@@ -64,7 +64,20 @@ const flowerList = document.getElementById('flowerList');
 const searchInput = document.getElementById('searchInput');
 const dropdown = document.getElementById('dropdown');
 
-const flowers = ['Wisteria', 'Butterfly bush', 'Agapanthus', 'Lavender', 'Rosemary', 'Climbing hydrangea', 'Fig tree', 'Bamboo'];
+// Updated flowers array with flowering months
+const flowersData = [
+    { name: 'Wisteria', floweringMonths: [3, 4] },
+    { name: 'Butterfly bush', floweringMonths: [6, 7, 8] },
+    { name: 'Agapanthus', floweringMonths: [7, 8] },
+    { name: 'Lavender', floweringMonths: [6, 7, 8] },
+    { name: 'Rosemary', floweringMonths: [3, 4, 5, 10, 11] },
+    { name: 'Climbing hydrangea', floweringMonths: [6, 7] },
+    { name: 'Fig tree', floweringMonths: [7, 8, 9] },
+    { name: 'Bamboo', floweringMonths: [] } // Bamboo does not flower regularly
+];
+
+// Extract only the names for use in side bar
+const flowers = flowersData.map(flower => flower.name);
 
 // Load flowers from local storage
 const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
