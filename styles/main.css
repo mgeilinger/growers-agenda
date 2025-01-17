@@ -304,13 +304,13 @@ input[type="text"] {
 
 #timeline-info h1 {
     margin-left: 300px;
-    color: limegreen;
+    color: darkolivegreen;
 }
 
 #timeline-info p {
     margin-top: 0;
     margin-bottom: 3px;
-    color: limegreen;
+    color: darkolivegreen;
 }
 
 #timelineTable {
