@@ -250,3 +250,37 @@ var hello = toCamelCase("butterfly bush")
 var goodbye = fromCamelCase(hello);
 console.log(hello);
 console.log(goodbye)
+
+function createTimeline(flowersData) {
+    const timelineContainer = document.getElementById("timeline");
+  
+    // Create the table element
+    const timelineTable = document.createElement("table");
+    timelineTable.id = "timelineTable";
+    timelineTable.border = "1";
+  
+    // Create the table header with months
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = `<th>Plant</th>` + 
+      ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        .map(month => `<th>${month}</th>`)
+        .join("");
+    timelineTable.appendChild(headerRow);
+  
+    // Create rows for each plant
+    flowersData.forEach(plant => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${plant.name}</td>` + 
+        Array.from({ length: 12 }, (_, i) => {
+          const isFlowering = plant.floweringMonths.includes(i + 1);
+          return `<td class="${isFlowering ? 'flowering' : ''}"></td>`;
+        }).join("");
+      timelineTable.appendChild(row);
+    });
+  
+    // Add the timeline table to the timeline container
+    timelineContainer.appendChild(timelineTable);
+  }
+  
+  // Call the function to create the timeline
+  createTimeline(flowersData);

@@ -96,22 +96,6 @@ body {
     height: 130px;
 }
 
-.top-bar {
-    width: 100%;
-    height: 498px;
-    background-color: white;
-    border-bottom: 2px solid limegreen;
-    position: fixed;
-    top: -500px;
-    left: 0;
-    transition: top 0.5s;
-    z-index: 9;
-}
-
-.top-bar.show {
-    top: 0;
-}
-
 .side-bar {
     width: 500px;
     height: 100%;
@@ -292,4 +276,39 @@ input[type="text"] {
 
 .text-right {
     margin-left: 400px;
+}
+
+.top-bar {
+    width: 100%;
+    height: 498px;
+    background-color: white;
+    border-bottom: 2px solid limegreen;
+    position: fixed;
+    top: -500px;
+    left: 0;
+    transition: top 0.5s;
+    z-index: 9;
+}
+
+.top-bar.show {
+    top: 0;
+}
+
+#timeline {
+    margin-top: 200px;
+}
+
+#timelineTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#timelineTable th, #timelineTable td {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+#timelineTable .flowering {
+    background-color: orange;
 }
