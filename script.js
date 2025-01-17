@@ -67,12 +67,17 @@ const dropdown = document.getElementById('dropdown');
 // Updated flowers array with flowering months
 const flowersData = [
     { name: 'Wisteria', floweringMonths: [3, 4] },
-    { name: 'Butterfly bush', floweringMonths: [6, 7, 8] },
+    { name: 'Butterfly bush', floweringMonths: [7, 8, 9] },
     { name: 'Agapanthus', floweringMonths: [7, 8] },
     { name: 'Lavender', floweringMonths: [6, 7, 8] },
     { name: 'Rosemary', floweringMonths: [3, 4, 5, 10, 11] },
     { name: 'Climbing hydrangea', floweringMonths: [6, 7] },
     { name: 'Fig tree', floweringMonths: [7, 8, 9] },
+    { name: 'Rhubarb', floweringMonths: [4, 5, 6, 7] },
+    { name: 'Hellebores', floweringMonths: [1, 2, 3, 4] },
+    { name: 'Forsythia', floweringMonths: [3, 4] },
+    { name: 'Silvergrass', floweringMonths: [10, 11] },
+    { name: 'Lupin', floweringMonths: [6, 7] },
     { name: 'Bamboo', floweringMonths: [] } // Bamboo does not flower regularly
 ];
 
@@ -261,7 +266,7 @@ function createTimeline(flowersData) {
   
     // Create the table header with months
     const headerRow = document.createElement("tr");
-    headerRow.innerHTML = `<th>Plant</th>` + 
+    headerRow.innerHTML = `<th></th>` + 
       ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         .map(month => `<th>${month}</th>`)
         .join("");
