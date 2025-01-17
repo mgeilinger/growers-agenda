@@ -295,7 +295,22 @@ input[type="text"] {
 }
 
 #timeline {
-    margin-top: 200px;
+    margin-top: 40px;
+}
+
+#timeline-info {
+    margin-top: 17px;
+}
+
+#timeline-info h1 {
+    margin-left: 300px;
+    color: limegreen;
+}
+
+#timeline-info p {
+    margin-top: 0;
+    margin-bottom: 3px;
+    color: limegreen;
 }
 
 #timelineTable {
@@ -306,9 +321,22 @@ input[type="text"] {
 
 #timelineTable th, #timelineTable td {
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid transparent;
+    color: darkolivegreen;
+}
+
+#timelineTable th:first-child,
+#timelineTable td:first-child {
+    width: 100px; /* Adjustable width for the plants column */
+    text-align: left;
+    padding-left: 30px;
+}
+
+#timelineTable th:not(:first-child),
+#timelineTable td:not(:first-child) {
+    width: 60px; /* Fixed width for all month columns */
 }
 
 #timelineTable .flowering {
-    background-color: orange;
+    background-color: lime;
 }
