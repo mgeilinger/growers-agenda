@@ -280,14 +280,14 @@ input[type="text"] {
 
 .top-bar {
     width: 100%;
-    height: 598px;
-    background-color: white;
-    border-bottom: 2px solid limegreen;
+    height: 600px;
+    background-color: #c2c8ba;
+    color: rgb(255, 255, 248);
     position: fixed;
     top: -600px;
     left: 0;
     transition: top 0.5s;
-    z-index: 9;
+    z-index: 11;
 }
 
 .top-bar.show {
@@ -299,20 +299,17 @@ input[type="text"] {
 }
 
 #timeline-info {
-    margin-top: 17px;
+    margin: 20px;
 }
 
 #timeline-info h1 {
-    margin-left: 310px;
-    color: darkolivegreen;
     font-size: 26px;
-    border-bottom: 2px solid darkolivegreen;
+    border-bottom: 2px solid rgb(255, 255, 248);
 }
 
 #timeline-info p {
     margin-top: 0;
     margin-bottom: 3px;
-    color: darkolivegreen;
 }
 
 #timelineTable {
@@ -324,7 +321,7 @@ input[type="text"] {
 #timelineTable th, #timelineTable td {
     padding: 5px;
     border: 1px solid transparent;
-    color: darkolivegreen;
+    color: rgb(255, 255, 248);
 }
 
 #timelineTable th:first-child,
@@ -340,5 +337,5 @@ input[type="text"] {
 }
 
 #timelineTable .flowering {
-    background-color: lime;
+    background-color: rgb(255, 255, 248);
 }
