@@ -90,6 +90,51 @@ const storedFlowers = JSON.parse(localStorage.getItem('flowers')) || [];
 // Filter out stored flowers from dropdown
 const filteredFlowers = flowers.filter(flower => !storedFlowers.includes(flower.toLowerCase()));
 
+const flowersData = [
+    { name: 'Rosemary', months: [1, 2, 3, 4, 5, 6, 10, 11, 12] },
+    { name: 'Sea Lavender', months: [6, 7, 8, 9] },
+    { name: 'Wisteria', months: [5, 6, 7] },
+    { name: 'Lavender', months: [6, 7, 8, 9] },
+    { name: 'Butterfly bush', months: [7, 8, 9] },
+    { name: 'Agapanthus', months: [6, 7, 8] },
+    { name: 'Climbing hydrangea', months: [5, 6, 7, 8] },
+    { name: 'Fig tree', months: [7, 8, 9, 10] },
+    { name: 'Bamboo', months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }
+];
+
+// Filter flowersData to include only those in the `flowers` array
+const filteredFlowersData = flowersData.filter(flower =>
+    flowers.includes(flower.name)
+);
+
+const timelineMonths = document.querySelector('.timeline-months');
+const timelineFlowers = document.querySelector('.timeline-flowers');
+
+// Generate months on the timeline
+for (let i = 1; i <= 12; i++) {
+    const monthLabel = document.createElement('div');
+    monthLabel.textContent = new Date(0, i - 1).toLocaleString('default', { month: 'short' });
+    timelineMonths.appendChild(monthLabel);
+}
+
+// Add flower bars to the timeline for filtered flowers
+filteredFlowersData.forEach(flower => {
+    const flowerBar = document.createElement('div');
+    flowerBar.className = 'flower-bar';
+    flowerBar.textContent = flower.name;
+
+    // Calculate flower bar position and width
+    const startMonth = Math.min(...flower.months);
+    const endMonth = Math.max(...flower.months);
+    const barStart = ((startMonth - 1) / 12) * 100;
+    const barWidth = ((endMonth - startMonth + 1) / 12) * 100;
+
+    flowerBar.style.left = `${barStart}%`;
+    flowerBar.style.width = `${barWidth}%`;
+
+    timelineFlowers.appendChild(flowerBar);
+});
+
 // Event listener for search input
 searchInput.addEventListener('input', function () {
     const searchTerm = searchInput.value.toLowerCase();
